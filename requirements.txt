@@ -1,0 +1,10 @@
+dash==4.0.0
+plotly==6.6.0
+pandas==3.0.1
+yfinance==1.2.0
+python-dotenv==1.2.2
+google-genai==1.68.0
+scikit-learn==1.8.0
+pydantic==2.12.5
+numpy==2.4.3
+requests==2.32.5

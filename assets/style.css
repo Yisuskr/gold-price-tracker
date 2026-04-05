@@ -1,0 +1,313 @@
+/* =====================================================================
+   Gold Price Tracker — Global Styles
+   ===================================================================== */
+
+/* -- Base & fonts ---------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #181825;
+  color: #cdd6f4;
+  min-height: 100vh;
+}
+
+/* -- App container --------------------------------------------------- */
+#app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* -- Header ---------------------------------------------------------- */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.header-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #f9e2af;   /* gold accent */
+  letter-spacing: 0.04em;
+}
+
+.header-subtitle {
+  font-size: 1rem;
+  color: #a6adc8;
+  margin-top: 6px;
+}
+
+/* -- KPI cards ------------------------------------------------------- */
+.kpi-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.kpi-card {
+  flex: 1;
+  min-width: 160px;
+  background-color: #1e1e2e;
+  border: 1px solid #313244;
+  border-radius: 12px;
+  padding: 20px 24px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.kpi-card:hover {
+  transform: translateY(-3px);
+}
+
+.kpi-title {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #a6adc8;
+  margin-bottom: 8px;
+}
+
+.kpi-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #f9e2af;
+}
+
+.kpi-unit {
+  font-size: 0.75rem;
+  color: #6c7086;
+  margin-top: 4px;
+  display: block;
+}
+
+/* -- Controls -------------------------------------------------------- */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.controls-label {
+  font-size: 0.9rem;
+  color: #a6adc8;
+  white-space: nowrap;
+}
+
+.period-radio label,
+.currency-radio label {
+  margin-right: 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #cdd6f4;
+}
+
+/* Push currency toggle to the right */
+.controls-spacer {
+  flex: 1;
+}
+
+/* Currency toggle pill style */
+.currency-radio {
+  display: flex;
+  gap: 4px;
+  background-color: #313244;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.currency-radio label {
+  margin-right: 0;
+  padding: 4px 14px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.currency-radio input[type="radio"]:checked + label {
+  background-color: #f9e2af;
+  color: #181825;
+  font-weight: 600;
+}
+
+/* -- Main content layout (chart + AI panel) -------------------------- */
+.main-content {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* -- Chart ----------------------------------------------------------- */
+.chart-container {
+  flex: 1;
+  min-width: 0;
+  background-color: #1e1e2e;
+  border: 1px solid #313244;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+/* -- AI panel -------------------------------------------------------- */
+.ai-panel {
+  width: 320px;
+  flex-shrink: 0;
+  background-color: #1e1e2e;
+  border: 1px solid #313244;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ai-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ai-panel-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f9e2af;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.ai-refresh-btn {
+  background: #313244;
+  border: 1px solid #45475a;
+  color: #cdd6f4;
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.ai-refresh-btn:hover {
+  background: #45475a;
+}
+
+/* Signal badge */
+.ai-signal-badge {
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 10px 20px;
+  letter-spacing: 0.08em;
+}
+
+/* Confidence bar */
+.ai-confidence-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ai-confidence-bar-bg {
+  flex: 1;
+  height: 8px;
+  background-color: #313244;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ai-confidence-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.ai-label {
+  font-size: 0.75rem;
+  color: #a6adc8;
+  white-space: nowrap;
+}
+
+/* Technical indicator chips */
+.ai-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ai-chip {
+  background-color: #313244;
+  color: #f9e2af;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+}
+
+/* Sections */
+.ai-section {
+  border-top: 1px solid #313244;
+  padding-top: 10px;
+}
+
+.ai-section-title {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6c7086;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.ai-summary-text {
+  font-size: 0.82rem;
+  color: #cdd6f4;
+  line-height: 1.5;
+}
+
+.ai-reasons-list {
+  padding-left: 16px;
+  font-size: 0.8rem;
+  color: #a6adc8;
+  line-height: 1.7;
+}
+
+/* Article links */
+.ai-articles {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ai-article-link {
+  font-size: 0.78rem;
+  color: #89b4fa;
+  text-decoration: none;
+  line-height: 1.4;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ai-article-link:hover {
+  color: #cdd6f4;
+  text-decoration: underline;
+}
+
+.ai-timestamp {
+  font-size: 0.7rem;
+  color: #45475a;
+  margin-top: 4px;
+  text-align: right;
+}
+
+/* -- Last updated ---------------------------------------------------- */
+.last-updated {
+  text-align: right;
+  font-size: 0.75rem;
+  color: #6c7086;
+  margin-top: 12px;
+}
