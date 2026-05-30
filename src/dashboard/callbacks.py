@@ -306,6 +306,39 @@ def _build_candlestick_chart(
         col=1,
     )
 
+    # ── Live price indicator ──────────────────────────────────────────────
+    last_price = df["Close"].iloc[-1]
+    last_time = df.index[-1]
+
+    # dashed horizontal line across the full chart at the current price
+    fig.add_hline(
+        y=last_price,
+        line={"dash": "dash", "color": "#f9e2af", "width": 1.2},
+        row=1,
+        col=1,
+    )
+
+    # price label pinned to the right edge of the chart
+    fig.add_annotation(
+        x=last_time,
+        y=last_price,
+        xref="x",
+        yref="y",
+        text=f"<b>{symbol}{last_price:,.2f}</b>",
+        showarrow=True,
+        arrowhead=2,
+        arrowcolor="#f9e2af",
+        arrowsize=0.8,
+        ax=40,
+        ay=0,
+        bgcolor="#313244",
+        bordercolor="#f9e2af",
+        borderwidth=1,
+        borderpad=4,
+        font={"color": "#f9e2af", "size": 12},
+        xanchor="left",
+    )
+
     fig.update_layout(
         title={
             "text": f"Gold (XAU/{currency}) — {_PERIOD_LABELS.get(period, period)}",
@@ -317,7 +350,7 @@ def _build_candlestick_chart(
         font={"color": "#cdd6f4"},
         xaxis_rangeslider_visible=False,
         legend={"orientation": "h", "y": 1.02},
-        margin={"l": 60, "r": 30, "t": 60, "b": 20},
+        margin={"l": 60, "r": 80, "t": 60, "b": 20},
         hovermode="x unified",
         yaxis_tickprefix=symbol,
         yaxis_tickformat=",.2f",
